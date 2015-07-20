@@ -4,8 +4,13 @@ People die in the wars you haven't heard of, too.
 
 ## Done:
 
+* Basic test for localhost:3000
+* Database exists and is running
+* Schema for <i>events</i> and <i>reports</i>
+
 ## Doing:
 
+* Route to actually show something at localhost:3000
 * Test scraping potential source-sites until one that works well is found
 * Make a database of minimal <i>report</i> (each <i>report</i> is one article from the source-site) data from that source-site; start with a manageable number of <i>reports</i> (say, 4)
 * Make index.html with templates to view <i>report</i> data
@@ -21,6 +26,8 @@ People die in the wars you haven't heard of, too.
 * Process <i>reports</i> to show the first paragraph of each (plus url/source/date/location), saving and hiding the full text
 * Test with more different <i>reports</i> to make sure the <i>event</i>-creation works properly
 * Update <i>reports</i> and <i>events</i> over time
+* Auth
+* Keruho
 * More...
 
 ### Stretch:

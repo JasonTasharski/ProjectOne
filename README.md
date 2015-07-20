@@ -4,9 +4,10 @@ People die in the wars you haven't heard of, too.
 
 ## Done:
 
-* Basic test for localhost:3000
+* Localhost:3000 shows (placeholder) index.html
 * Database exists and is running
 * Schema for <i>events</i> and <i>reports</i>
+* Postman-tested Kimono API (two articles, one source)
 
 ## Doing:
 

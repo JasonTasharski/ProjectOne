@@ -2,7 +2,7 @@ var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
 var ReportSchema = new Schema({
-  dateFiled: Object,
+  dateFiled: String, // WILL BE OBJECT; string for testing purposes
   locationFiled: String, 
   newsSource: String
 });

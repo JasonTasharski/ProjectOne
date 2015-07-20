@@ -14,7 +14,7 @@ mongoose.connect(
 // report2.save();
 
 app.get('/', function (req, res) {
-  res.sendFile(__dirname + '/view/index.html');
+  res.sendFile(__dirname + 'public/view/index.html');
 });
 
 app.get('/api/events', function (req, res) {

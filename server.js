@@ -4,8 +4,10 @@ var express = require('express'),
     mongoose = require('mongoose'),
     Event = require('./models/event');
 
-mongoose.connect("mongodb://localhost/api/events");
-
+mongoose.connect(
+  process.env.MONGOLAB_URI ||
+  process.env.MONGOHQ_URL ||
+  'mongodb://localhost/api/events');
 // var report1 = new db.Report({dateFiled:"June 25, 2015", locationFiled:"Rajnandgaon", newsSource:"The Hindu"});
 // report1.save();
 // var report2 = new db.Report({dateFiled:"April 13, 2015", locationFiled:"Raipur", newsSource:"The Hindu"});

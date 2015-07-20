@@ -4,6 +4,8 @@ var express = require('express'),
     mongoose = require('mongoose'),
     Event = require('./models/event');
 
+app.use(express.static(__dirname + '/public'));
+
 mongoose.connect(
   process.env.MONGOLAB_URI ||
   process.env.MONGOHQ_URL ||

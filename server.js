@@ -17,6 +17,12 @@ app.get('/', function (req, res) {
   res.sendFile(__dirname + '/view/index.html');
 });
 
+app.get('/api/events', function (req, res) {
+  req.currentUser(function (err, user) {
+    res.json(user);
+  });
+});
+
 app.listen(process.env.PORT || 3000, function () {
   console.log('server started on localhost:3000');
 });

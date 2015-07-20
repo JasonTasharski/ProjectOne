@@ -8,8 +8,8 @@ app.use(express.static(__dirname + '/public'));
 
 mongoose.connect(
   process.env.MONGOLAB_URI ||
-  process.env.MONGOHQ_URL ||
-  'mongodb://localhost/api/events');
+  process.env.MONGOHQ_URL || 
+  'mongodb://localhost/test');
 // var report1 = new db.Report({dateFiled:"June 25, 2015", locationFiled:"Rajnandgaon", newsSource:"The Hindu"});
 // report1.save();
 // var report2 = new db.Report({dateFiled:"April 13, 2015", locationFiled:"Raipur", newsSource:"The Hindu"});
@@ -20,8 +20,8 @@ app.get('/', function (req, res) {
 });
 
 app.get('/api/events', function (req, res) {
-  req.currentUser(function (err, user) {
-    res.json(user);
+  Event.find(function(err, alltheevents){
+    res.json(alltheevents);
   });
 });
 

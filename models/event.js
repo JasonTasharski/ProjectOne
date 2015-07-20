@@ -2,7 +2,7 @@ var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
 var EventSchema = new Schema({
-  date: Object, // WILL BE OBJECT; string for testing purposes
+  date: String, // WILL BE OBJECT; string for testing purposes
   location: String
   // state: String,
   // reports: [{

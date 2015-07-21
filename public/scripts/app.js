@@ -6,17 +6,13 @@ $(function() {
 	var templateE = _.template($('#eventTemplate').html()); // compile
 
 	var renderR = function(reportToRender) {
-	  console.log("Rendering report...");
 	  $('#reportTarget').append($(templateR(reportToRender))); // will render reports
-	  console.log("Report rendered.");
 	};
 	var renderE = function(eventToRender) {
-	  console.log("Rendering EVENT...");
 	  $('#eventTarget').append($(templateE(eventToRender))); // will render events
 		_.each(eventToRender.reports, function(reportToRender) {
 			renderR(reportToRender); // called, calls renderR on each assigned report
 		});
-		console.log("EVENT rendered!");
 	};
 
 	// Hard-coding for fun and profit

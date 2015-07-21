@@ -20,8 +20,7 @@ $(function() {
 	};
 
 	// Hard-coding for fun and profit
-	var eventHC = {
-		iAmA: "Hard-coded event",
+	var eventHC1 = {
 		eventLocationP: "Out of place",
 		eventDateP: "Out of time",
 		reports: [
@@ -39,11 +38,25 @@ $(function() {
 			}
 		]
 	}
+	var eventHC2 = {
+		eventLocationP: "Out of place",
+		eventDateP: "Out of time",
+		reports: [
+			{
+				reportTitleP: "Third Report",
+				reportLocationP: "Kashmir",
+				reportDateP: "Last Week",
+			},
+			{
+				reportTitleP: "Fourth Report",
+				reportLocationP: "Nagaland",
+				reportDateP: "Next Week",
+			}
+		]
+	}
 
-	console.log(eventHC.iAmA + " exists!");
-	console.log(eventHC.reports[0].iAmA + " exists!");
-	console.log(eventHC.reports[1].iAmA + " exists!");
-	renderE(eventHC); //
+	renderE(eventHC1);
+	renderE(eventHC2);
 
 	// $.get('/api/events', function() {
 	// 	request("https://www.kimonolabs.com/api/7imxs5lg?kimbypage=1?apikey=P2npdGDmBAziqQB7UEgQR01k1joldB86", 

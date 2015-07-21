@@ -9,15 +9,57 @@
   <title>Three Wars</title>
 </head>
 <body>
+  <div class="well" id="headerBackground">
+    <div class="container" id="headerContainer">
+      <div class="page-header">
+        <h1>&#9784; &#9876; &#9755; &#9773; &#9770; &#9769; <small> yes it symbolizes something</small></h1>
+      </div>
+    </div>
+  </div>
   <div class="container">
-    <h1> THIS IS A TEST h1 &#9784; &#9876; &#9755; &#9773; &#9770; &#9769;</h1>
+    <div class="row">
+      <div class="col-md-12">
+        <div id="eventTarget"></div>
+      </div>
+    </div>
   </div>
 
 
-
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
+
+  <script type="text/template" id="eventTemplate">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Placeholder Event Title</h3>
+      </div>
+      <div class="panel-body">
+        <h4><%= eventLocationP %></h4>
+        <h5><%= eventDateP %></h5>
+        <p> Placedholder event description goes here; figure out some way of producing it eventually... </p>
+        <div id="reportTarget"></div>
+      </div>
+    </div>
+  </script>
+
+  <script type="text/template" id="reportTemplate">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title"> <%= reportTitleP %> </h3>
+      </div>
+      <div class="panel-body">
+        <%= reportLocationP %>
+        <%= reportDateP %>
+        <p> Placedholder report description goes here; figure out some way of producing it eventually... </p>
+      </div>
+    </div>
+  </script>
+
+  <script type="text/template" id="userTemplate">
+    <%= userName %>
+  </script>
+
 </body>
 </html>

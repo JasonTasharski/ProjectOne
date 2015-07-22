@@ -5,6 +5,7 @@ var express = require('express'),
     request = require('request'),
     cors = require('cors'),
     User = require('./models/user'),
+    env = process.env,
     Event = require('./models/event');
 
 var session = require('express-session');
@@ -67,15 +68,15 @@ app.get('/', function (req, res) {
 
 // GET API
 app.get('/api/events', function (req, res) {
-  res.send("Test!");
-  // request('https://www.kimonolabs.com/api/7imxs5lg?kimbypage=1?apikey=P2npdGDmBAziqQB7UEgQR01k1joldB86', function (error, response, body) {
-  //   res.json(body); // parse out of string before processing
-  // })
+  // res.send("Test!");
+  request('https://www.kimonolabs.com/api/7imxs5lg?kimbypage=1?apikey=' + env.MY_API_KEY, function (error, response, body) {
+    res.json(body); // parse out of string before processing
+  })
 });
 
 // SCRAPE
 app.get('/scrape', function (req, res) { // Manually get data, process; works by inputing url/scrape; later do it with a script, not a route, to make it run once a day
-  request('https://www.kimonolabs.com/api/7imxs5lg?kimbypage=1?apikey=P2npdGDmBAziqQB7UEgQR01k1joldB86', function (error, response, body) {
+  request('https://www.kimonolabs.com/api/7imxs5lg?kimbypage=1?apikey=' + env.MY_API_KEY, function (error, response, body) {
     // code to save into database, process
   })
 });

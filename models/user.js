@@ -3,11 +3,11 @@ var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
 var UserSchema = new Schema({
-  username: String, // WILL BE OBJECT; string for testing purposes
-  email: String, 
-  password: String // MAKE INACCESSIBLE AND HIDDEN AND ENCRYPTED AND SECRET
+  username: String, // when created, check no identical username exists.
+  email: String, // when created, check no identical username exists.
+  password: String // MAKE INACCESSIBLE AND HIDDEN AND ENCRYPTED AND SECRET; require input twice when created; show dots instead of characters while typing
 });
 
-var Report = mongoose.model('Report', ReportSchema);
+var User = mongoose.model('User', UserSchema);
 
-module.exports = Report;
+module.exports = User;

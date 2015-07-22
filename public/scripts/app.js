@@ -42,17 +42,20 @@ $(function() {
 	renderE(eventHC2);
 
 
-
-	$.get('https://www.kimonolabs.com/api/7imxs5lg?kimbypage=1?apikey=P2npdGDmBAziqQB7UEgQR01k1joldB86',
-			function(data) {
-		console.log(data);
-	});
-	// $.get('/api/events', function() { // INCLUDING THIS BREAKS jQUERY. WHAT THE ACTUAL FUCK.
-	// 	request("https://www.kimonolabs.com/api/7imxs5lg?kimbypage=1?apikey=P2npdGDmBAziqQB7UEgQR01k1joldB86", 
-	// 		function(err, response, body) {
-	// 		  console.log(body);
-	// 	});
-	// });
+// var invocation = new XMLHttpRequest();
+// var url = 'https://www.kimonolabs.com/api/';
+   
+// function callOtherDomain() {
+//   if(invocation) {    
+//     invocation.open('GET', url, true);
+//     invocation.onreadystatechange = handler;
+//     invocation.send(); 
+//   }
+// }
+// 	$.get('https://www.kimonolabs.com/api/7imxs5lg?kimbypage=1?apikey=P2npdGDmBAziqQB7UEgQR01k1joldB86&callback=',
+// 			function(data) {
+// 		console.log(data);
+// 	});
 
 
 });

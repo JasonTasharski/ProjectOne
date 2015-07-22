@@ -9,17 +9,21 @@ People die in the wars you haven't heard of, too.
 * Schema for <i>events</i> and <i>reports</i>
 * Kimono API (two articles, one source)
 * All that works locally works on Keruho
+* Navbar exists and is ready to do things.
 
 ## Doing:
 
+* Connect server to API
+* Auth
 * Set up requests to connect client-side to mongoDB
-* Set up requests to connect mongoDB to Kimono API (Manually create events to hold Kimono reports)
-* Expand Kimono API to test more throughly
+
 
 ## To Do:
 
 ### Minimum:
 
+* Set up requests to connect mongoDB to Kimono API (Manually create events to hold Kimono reports)
+* Expand Kimono API to test more throughly
 * Make API update self daily, with a max of ~10 items (can always make it larger later)
 * Produce an event for each report
 * Check to see if an event for a report's date/location exists; add that report to that event if it does; make a new event for that report if it doesn't

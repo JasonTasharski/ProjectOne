@@ -77,7 +77,7 @@ app.get('/api/events', function (req, res) {
 // SCRAPE
 app.get('/scrape', function (req, res) { // Manually get data, process; works by inputing url/scrape; later do it with a script, not a route, to make it run once a day
   request('https://www.kimonolabs.com/api/7imxs5lg?kimbypage=1?apikey=' + env.MY_API_KEY, function (error, response, body) {
-    // code to save into database, process
+    // code to save into database, process ALL WITHIN THIS FUNCTION
   })
 });
 
@@ -109,11 +109,6 @@ app.get('user/current', function (req,res){
     res.json(user);
   });
 });
-
-// $.get('https://www.kimonolabs.com/api/7imxs5lg?kimbypage=1?apikey=P2npdGDmBAziqQB7UEgQR01k1joldB86&callback=',
-//    function(data) {
-//  console.log(data);
-// });
 
 app.listen(process.env.PORT || 3000, function () {
   console.log('server started on localhost:3000');

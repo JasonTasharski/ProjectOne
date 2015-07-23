@@ -45,7 +45,15 @@ $(function() {
 	$.get('/api/events', function(res){ //  get data from database (eventually)
 		console.log(res); // THIS gets the data from the API, via server
 	})
-
+	$.get('/api/reports', function(res){ //  get data from database (eventually)
+		console.log(res); // THIS gets the data from the API, via server
+	})
+	$.get('/api/users', function(res){ //  get data from database (eventually)
+		console.log(res); // THIS gets the data from the API, via server
+	})
+	$.get('/scrape', function(res){ //  get data from database (eventually)
+		console.log(res); // THIS gets the data from the API, via server
+	})
 	$('#login-form').on("submit", function(event){
 		var userData = {
 			email: $('#login-user-email').val(),

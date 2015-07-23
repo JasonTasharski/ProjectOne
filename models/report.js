@@ -4,7 +4,10 @@ var mongoose = require('mongoose'),
 var ReportSchema = new Schema({
   dateFiled: String, // WILL BE OBJECT; string for testing purposes
   locationFiled: String, 
-  newsSource: String
+  newsSource: String,
+  title: String,
+  sourceUrl: String,
+  sampleText: String
 });
 
 var Report = mongoose.model('Report', ReportSchema);

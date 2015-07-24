@@ -10,6 +10,21 @@ var ReportSchema = new Schema({
   sampleText: String
 });
 
+ReportSchema.methods.redundant = function (sourceUrl) {
+  console.log("#1: Entered redundancy-check");
+  var thisReport = this;
+  Report.findOne({sourceUrl: sourceUrl}, function (err, foundUrl) {
+  	console.log("#2: Checking redundancy for: " + thisReport.title);
+    if (foundUrl !== null) {
+      console.log('#3: Already exists.');
+    } else {
+    	console.log("#3: Doesn't exist yet.");
+    	//newReport.save();
+    }
+  });
+  console.log("#4 Exiting redundancy-check");
+};
+
 var Report = mongoose.model('Report', ReportSchema);
 
 module.exports = Report;

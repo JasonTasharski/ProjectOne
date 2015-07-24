@@ -80,12 +80,10 @@ app.get('/api/users', function (req, res) {
 // SCRAPE
 app.get('/scrape', function (req, res) { // Manually get data, process; works by inputing url/scrape; later do it with a script, not a route, to make it run once a day
   var apiData;
-  console.log("#-4 This should be first!");
   request('https://www.kimonolabs.com/api/7imxs5lg?kimbypage=1?apikey=' + env.MY_API_KEY, function (error, response, body) {
     // code to save into database, process ALL WITHIN THIS FUNCTION
     apiData = JSON.parse(body);
     var page = apiData.results[0];
-    console.log("#-3 Page is: " + page.collection1[0].title);
     var newReport = new Report({
       dateFiled: page.collection1[0].dateLocation, // Note: same as...
       locationFiled: page.collection1[0].dateLocation, // ...this. Process dateLocation!
@@ -94,17 +92,12 @@ app.get('/scrape', function (req, res) { // Manually get data, process; works by
       sourceUrl: page.url,
       sampleText: page.collection2[0].text
     });
-    console.log("#-2 newReport is: " + newReport.title);
-    console.log("#-1 newReport.sourceUrl is: " + newReport.sourceUrl);
-    console.log("#0: Check report!");
     newReport.redundant(newReport.sourceUrl);
-    console.log("#5: Done checking report: " + newReport.title);
   });
     //}
     // Report.find(function (err, reports) {
     //   res.json(reports);
     // });
-  console.log("#6 This should be last!");
 });
 
 

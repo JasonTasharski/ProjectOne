@@ -84,6 +84,7 @@ app.get('/scrape', function (req, res) { // Manually get data, process; works by
   request('https://www.kimonolabs.com/api/7imxs5lg?kimbypage=1?apikey=' + env.MY_API_KEY, function (error, response, body) {
     // code to save into database, process ALL WITHIN THIS FUNCTION
     apiData = JSON.parse(body);
+    console.log(apiData);
     var page = apiData.results[0];
     console.log("#-3 Page is: " + page.collection1[0].title);
     var newReport = new Report({
@@ -94,19 +95,36 @@ app.get('/scrape', function (req, res) { // Manually get data, process; works by
       sourceUrl: page.url,
       sampleText: page.collection2[0].text
     });
-    console.log("#-2 newReport is: " + newReport.title);
-    console.log("#-1 newReport.sourceUrl is: " + newReport.sourceUrl);
-    console.log("#0: Check report!");
-    newReport.redundant(newReport.sourceUrl);
-    console.log("#5: Done checking report: " + newReport.title);
-  });
+    res.send(newReport);
+
+
+
     //}
     // Report.find(function (err, reports) {
     //   res.json(reports);
-    // });
-  console.log("#6 This should be last!");
+    });
+  
 });
 
+app.post('/redundant', function (req, res) {
+    console.log("#-2 newReport is: " + req.body.title);
+    console.log("#-1 newReport.sourceUrl is: " + req.body.sourceUrl);
+    console.log("#0: Check report!");
+    Report.findOne({sourceUrl: req.body.sourceUrl}, function(foundUrl){
+      
+      console.log("#2: Checking redundancy for: " + req.body.title);
+    if (foundUrl !== null) {
+      console.log('#3: Already exists.');
+      res.send("true");
+    } else {
+      console.log("#3: Doesn't exist yet.");
+      res.send("false");
+      //newReport.save();
+    }
+    console.log("#4 Exiting redundancy-check")
+    console.log("#5: Done checking report: " + req.body.title);
+    });
+});
 
 // Show CREATE USER page
 app.get('/user/new', function (req, res) {

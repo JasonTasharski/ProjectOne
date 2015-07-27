@@ -42,18 +42,47 @@ $(function() {
 	renderE(eventHC2);
 
 
-	$.get('/api/events', function(res){ //  get data from database (eventually)
+	function events() {
+		$.get('/api/events', function(res){ //  get data from database (eventually)
 		console.log(res); // THIS gets the data from the API, via server
-	})
+		})
+	}
+	function reports() {
 	$.get('/api/reports', function(res){ //  get data from database (eventually)
 		console.log(res); // THIS gets the data from the API, via server
-	})
+		})
+	}
+	function users () {	
 	$.get('/api/users', function(res){ //  get data from database (eventually)
 		console.log(res); // THIS gets the data from the API, via server
-	})
-	$.get('/scrape', function(res){ //  get data from database (eventually)
-		console.log(res); // THIS gets the data from the API, via server
-	})
+		})
+	}
+	function redundant(obj) {
+		$.ajax({
+			url: "/redundant",
+			type: 'POST',
+			data: obj,
+			success: function (data) {
+			console.log(data);
+			console.log("#6 This should be last!");
+			}
+		})
+	}
+	function scrape() {
+		$.ajax({
+			url: "/scrape",
+			type: 'GET',
+			success: function (data) {
+				redundant(data);
+			}
+		})
+	}
+	// function scrape () {
+	// $.get('/scrape', function(res){ //  get data from database (eventually)
+	// 	console.log(res); // THIS gets the data from the API, via server
+	// })
+	// }
+
 	$('#login-form').on("submit", function(event){
 		var userData = {
 			email: $('#login-user-email').val(),
@@ -71,5 +100,5 @@ $(function() {
 	// 		//jemand eingelogt
 	// 	}
 	// })
-
+scrape();
 });
